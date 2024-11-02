@@ -1,0 +1,55 @@
+/* Base layout styling */
+.main-div {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid red;
+    border-radius: 20px;
+}
+
+.form-container,
+.image-container,
+.signin-form-container {
+    transition: transform 0.5s ease-in-out;
+}
+
+.form-container {
+    width: 50%;
+    padding: 20px;
+}
+
+.image-container {
+    width: 500px;
+}
+
+.bg-img{
+    width: 520px !important; 
+    height: 586px !important;
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.signin-form-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    padding: 20px;
+    display: none;
+}
+
+/* Slide effect styling */
+.slide-left {
+    transform: translateX(-100%);
+}
+
+.signin-form-container.active {
+    display: block;
+}
