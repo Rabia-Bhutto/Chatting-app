@@ -8,8 +8,32 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid red;
+    border: 2px solid black;
     border-radius: 20px;
+    background-color: #FFCD34;
+}
+
+.input-field{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+/* .label{
+    color: #E95CEB;
+} */
+
+.signup-signin-btn{
+    background: #000;
+    color: #FFCD34;
+    font-weight: bold;
+
+}
+
+.signup-signin-btn:hover{
+    background: #FFCD34;
+    color: black;
+    border: 2px solid black;
+    font-weight: bold;
 }
 
 .form-container,
@@ -24,11 +48,13 @@
 }
 
 .image-container {
+    /* position: relative; */
     width: 500px;
+
 }
 
-.bg-img{
-    width: 520px !important; 
+.bg-img {
+    width: 520px !important;
     height: 586px !important;
     background-size: cover;
     background-position: center;
@@ -47,9 +73,21 @@
 
 /* Slide effect styling */
 .slide-left {
-    transform: translateX(-100%);
+    transform: translateX(-84%);
 }
 
 .signin-form-container.active {
     display: block;
+}
+
+.custom.btn {
+    color: black !important;
+    border: 2px solid black !important;
+    background-color: white !important;
+}
+
+.custom-btn:hover {
+    color: white !important;
+    border: 2px solid white !important;
+    background-color: black !important;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../Style-Sheets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Sign Up Form</title>
 </head>
 
@@ -18,25 +19,26 @@
                 <h2>Create New Account</h2>
                 <form id="signUpForm" action="#">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" required>
+                        <label for="name" class="label">Name</label>
+                        <input type="text" class="form-control input-field" id="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="signupEmail" required>
+                        <label for="email" class="label">Email</label>
+                        <input type="email" class="form-control input-field" id="signupEmail" required>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="signupPassword" required>
+                        <label for="password" class="label">Password</label>
+                        <input type="password" class="form-control input-field" id="signupPassword" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="signupBtn">Sign Up</button>
+                    <button type="submit" class="btn signup-signin-btn" id="signupBtn">Sign Up</button>
                 </form>
             </div>
 
             <div class="right-side">
                 <!-- Right Side: Image Container -->
             <div class="image-container" id="imageContainer">
-                <img src="../Images/Bg-img.jpeg" alt="Background Image" class="bg-img" id="bgImg">
+                <img src="../Images/Real-time chatting.png" alt="Background Image" class="bg-img" id="bgImg">
+              
             </div>
 
             <!-- Right Side: Sign-In Form (Initially Hidden) -->
@@ -45,13 +47,13 @@
                 <form id="signInForm" action="#">
                     <div class="form-group">
                         <label for="emailLogin">Email</label>
-                        <input type="email" class="form-control" id="signInEmail" required>
+                        <input type="email" class="form-control input-field" id="signInEmail" required>
                     </div>
                     <div class="form-group">
                         <label for="passwordLogin">Password</label>
-                        <input type="password" class="form-control" id="signInPassword" required>
+                        <input type="password" class="form-control input-field" id="signInPassword" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="loginBtn">Sign In</button>
+                    <button type="submit" class="btn signup-signin-btn" id="loginBtn">Sign In</button>
                 </form>
             </div>
             </div>
