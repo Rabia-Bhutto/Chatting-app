@@ -60,7 +60,12 @@ document.getElementById("signUpForm").addEventListener("submit", function (event
     document.getElementById("signinForm").classList.add("active");
 });
 
-
+document.getElementById("loginLink").addEventListener("click", function(){
+  // Slide the image container to the left
+  document.getElementById("imageContainer").classList.add("slide-left");
+  // Display the sign-in form
+  document.getElementById("signinForm").classList.add("active");
+})
 
 
 
@@ -91,3 +96,25 @@ document.getElementById('signUpForm').addEventListener('submit', function(e) {
         document.getElementById('signInForm').classList.remove('hidden');
     }, 500); // Delay to allow the sliding effect to complete
 });
+
+document.getElementById('loginLink').addEventListener('click', function(){
+   // Change the border-radius and slide the image
+   const slideImage = document.getElementById('bgImg');
+   slideImage.style.borderTopLeftRadius = '20px';
+   slideImage.style.borderBottomLeftRadius = '20px';
+   slideImage.style.borderTopRightRadius = '0px';
+   slideImage.style.borderBottomRightRadius = '0px';
+   slideImage.style.marginLeft = '-25px'
+
+   const leftSide = document.querySelector('.left-side');
+   const rightSide = document.querySelector('.right-side');
+   
+   // Adjust flex properties to slide
+   leftSide.style.flex = '0.7';
+   rightSide.style.flex = '1';
+
+   // Show the signin form after a delay
+   setTimeout(() => {
+       document.getElementById('signInForm').classList.remove('hidden');
+   }, 500); // Delay to allow the sliding effect to complete
+})

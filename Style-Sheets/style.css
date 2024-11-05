@@ -1,5 +1,5 @@
 .index-body{
-    background-image: url('../Images/this-removebg-preview.png') !important;
+    /* background-image: url('../Images/this-removebg-preview.png') !important; */
     background-color: rgba(255, 255, 255, 0.8) !important; /* Adjust color and opacity */
 }
 
@@ -46,6 +46,14 @@
     font-weight: bold;
 }
 
+.custom-text{
+    color: #230738 !important;
+}
+
+.custom-link{
+    color: white !important;
+}
+
 .form-container,
 .image-container,
 .signin-form-container {
@@ -65,7 +73,7 @@
 
 .bg-img {
     width: 450px !important;
-    height: 586px !important;
+    height: 505px !important;
     margin-left: 70px;
     background-size: cover;
     background-position: center;
@@ -84,7 +92,7 @@
 
 /* Slide effect styling */
 .slide-left {
-    transform: translateX(-82%);
+    transform: translateX(-70%);
 }
 
 .signin-form-container.active {

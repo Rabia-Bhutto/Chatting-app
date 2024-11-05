@@ -9,12 +9,12 @@ import {
 const auth = getAuth();
 let profilePage = document.getElementById("profile-page");
 let userName = document.getElementById("name");
-console.log(userName)
+console.log(userName);
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
+    // User is signed in
     profilePage.innerHTML =
-
       `<section class="h-100 gradient-custom-2">
       <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center">
@@ -30,7 +30,7 @@ onAuthStateChanged(auth, (user) => {
                   </button>
                 </div>
                 <div class="ms-3" style="margin-top: 130px;">
-                  <h5>${userName}</h5>
+                  <h5>${user.displayName || 'User'}</h5> <!-- Use displayName here -->
                   <p>${user.email}</p>
                 </div>
               </div>
@@ -61,8 +61,7 @@ onAuthStateChanged(auth, (user) => {
                 <div class="btns">
                 <button type="button" class="custom-btn btn btn-outline-dark text-body" id="verifyEmail">Verify your email</button>
                 <button type="button" class="custom-btn btn btn-outline-dark text-body" id="signOut">Sign Out</button>
-</div>
-               
+                </div>
               </div>
             </div>
           </div>
@@ -70,21 +69,8 @@ onAuthStateChanged(auth, (user) => {
       </div>
     </section>`;
 
-    // document.getElementById("verifyEmail").addEventListener("click", () => {
-    //     sendEmailVerification(auth.currentUser).then(() => 
-    //       Swal.fire({
-    //         position: "top-end",
-    //         icon: "success",
-    //         title: "Your work has been saved",
-    //         showConfirmButton: false,
-    //         timer: 1500
-    //       }) 
-    //      });
-
+    // Add event listener for email verification
     document.getElementById("verifyEmail").addEventListener("click", () => {
-      const user = auth.currentUser;
-
-      // Check if user is signed in
       if (user) {
         sendEmailVerification(user)
           .then(() => {
@@ -112,15 +98,61 @@ onAuthStateChanged(auth, (user) => {
       }
     });
 
-
-    document.getElementById("updateProfile").addEventListener("click", () => {
-      updateProfile(auth.currentUser, { displayName: "Rabia Bhutto" });
+    // Update user profile
+    document.getElementById("updateProfile").addEventListener("click", function () {
+      updateProfile(user, {
+        Swal.fire({
+          title: "Submit your Github username",
+          input: "text",
+          inputAttributes: {
+            autocapitalize: "off"
+          },
+          showCancelButton: true,
+          confirmButtonText: "Look up",
+          showLoaderOnConfirm: true,
+          preConfirm: async (login) => {
+            try {
+              const githubUrl = `
+                https://api.github.com/users/${login}
+              `;
+              const response = await fetch(githubUrl);
+              if (!response.ok) {
+                return Swal.showValidationMessage(`
+                  ${JSON.stringify(await response.json())}
+                `);
+              }
+              return response.json();
+            } catch (error) {
+              Swal.showValidationMessage(`
+                Request failed: ${error}
+              `);
+            }
+          },
+          allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: `${result.value.login}'s avatar`,
+              imageUrl: result.value.avatar_url
+            });
+          }
+        });
+       })
+        .then(() => {
+          console.log("Profile updated successfully");
+        })
+        .catch((error) => {
+          console.error("Error updating profile:", error);
+        });
     });
 
+    // Sign out
     document.getElementById("signOut").addEventListener("click", () => {
       signOut(auth).then(() => location.href = "Pages/index.html");
     });
+
   } else {
-    location.href = "Pages/index.html";
+    // No user is signed in, redirect to login
+    location.href = "index.html";
   }
 });
