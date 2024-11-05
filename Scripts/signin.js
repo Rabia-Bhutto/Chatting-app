@@ -15,7 +15,7 @@ loginBtn.addEventListener("click", () => {
           const user = userCredential.user;
           console.log(user);
           // Redirect to profile.html only if sign-in is successful
-          window.location.href = "../Pages/profile.html";
+          window.location.href = "Pages/profile.html";
       })
       .catch((error) => {
           const errorCode = error.code;
@@ -60,7 +60,7 @@ document.getElementById("signinForm").addEventListener("submit", function (event
   // document.getElementById("imageContainer").classList.add("slide-left");
   // // Display the sign-in form
   // document.getElementById("signinForm").classList.add("active");
-  location.href = "../Pages/profile.html"
+  location.href = "Pages/profile.html"
 
 });
 

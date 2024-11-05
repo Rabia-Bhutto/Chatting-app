@@ -118,9 +118,9 @@ onAuthStateChanged(auth, (user) => {
     });
 
     document.getElementById("signOut").addEventListener("click", () => {
-      signOut(auth).then(() => location.href = "../Pages/index.html");
+      signOut(auth).then(() => location.href = "Pages/index.html");
     });
   } else {
-    location.href = "../Pages/index.html";
+    location.href = "Pages/index.html";
   }
 });
